@@ -1,0 +1,26 @@
+<?php
+// Online PHP compiler to run PHP program online
+// Print "Try programiz.pro" message
+//A=[[1,2], [3,4]];
+//find all the sum values from this array using recursion.
+
+function arraySum(&$arr, $index=0, $length = null){
+    if($length === null ) $length = count($arr);
+    if($index >= $length) return $arr;
+    
+    if (is_array($arr[$index])) {
+        $sum = 0;
+        foreach ($arr[$index] as $num) {
+            $sum += $num;
+        }
+        $arr[$index] = $sum;
+    }
+    arraySum($arr, $index+1, $length);
+}
+
+$arr = [[1,2], [3,4]];
+arraySum($arr);
+print_r($arr);
+
+
+?>

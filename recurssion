@@ -1,0 +1,109 @@
+<?php
+// Online PHP compiler to run PHP program online
+// Print "Try programiz.pro" message
+//Find minimum array element using recursion
+//Input : A = {1, 4, 3, -5, -4, 8, 6};
+//Output : -5
+
+function sumRecursion($A, $index=0, $sum=0, $length = null)
+{
+    if($length === null) $length = count($A);
+    if ($index >= $length) return $sum;
+    return sumRecursion($A, $index+1, $sum+$A[$index], $length);
+}
+
+function minimumRecurssion($A, $index=0, $min = null, $length = null){
+    if($length === null) $length = count($A);
+    if( $index >= $length) return $min;
+    if( $min == null || $min > $A[$index]) $min = $A[$index];
+    return minimumRecurssion($A, $index+1, $min, $length);
+}
+
+function maxRecurrsion($A, $index=0, $max = null, $length = null){
+    if($length === null) $length = count($A);
+    if( $index >= $length) return $max;
+    if( $max < $A[$index]) $max = $A[$index];
+    return maxRecurrsion($A, $index+1, $max, $length);
+    
+}
+
+$A = [1, 4, 3, -5, -4, 8, 6];
+
+// factorial(5) → 5 * 4 * 3 * 2 * 1 = 120
+
+
+function factorial($n, $result = 1){
+    return ($n <= 1) ? $result : factorial($n-1, $n * $result);
+}
+
+//echo factorial(5);
+
+//fibonacci(6) → 0, 1, 1, 2, 3, 5
+function fibonacci($n, $index=0, $arr = [])
+{
+    if($index >= $n) return $arr;
+    $arr[$index] = ($index == 0 || $index == 1) ? $index : $arr[$index-2] + $arr[$index -1];
+    return fibonacci($n, $index+1, $arr);
+}
+
+
+// $result = fibonacci(6); 
+// echo implode(', ', $result);
+// //echo sumRecursion($A);
+
+
+function reversArray(&$arr, $start=0, $end = null){
+    if($end === null) $end = count($arr) -1;
+    if($start >= $end) return;
+    
+    $temp = $arr[$start];
+    
+    $arr[$start] = $arr[$end];
+    
+    $arr[$end] = $temp;
+    
+    return reversArray($arr, $start+1, $end-1);
+    
+}
+
+$arr = [1, 2, 3, 4, 5];
+reversArray($arr);
+print_r($arr)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>

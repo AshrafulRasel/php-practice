@@ -1,0 +1,32 @@
+<?php
+/*
+Count array elements. If found duplicate count as one.
+Sample Input/Output:
+
+1) A = [3, 2, 2, 1, 1]
+output: 3
+cause 1, 2, 3 are the only elements.
+2) A = [1, 2, 3, 4, 4, 5]
+output: 5
+cause 1, 2, 3, 4, 5 are the only single elements, rest of are duplicates
+
+Do this as a function.
+*/
+function countArrayElement($arr){
+    $newArray = [];
+    $length = count($arr);
+    for($i=0; $i<$length; $i++){
+       if(!in_array( $arr[$i], $newArray)){
+           $newArray[] = $arr[$i] ;
+       }
+    }
+    return count($newArray);
+    
+}
+
+$a = [3, 2, 2, 1, 1];
+echo countArrayElement($a);
+
+
+
+?>
